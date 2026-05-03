@@ -241,14 +241,6 @@ draw_chart_device <- function(df_panel, panel_number) {
   axis(1, at = c(2010, 2015, 2020, 2023), col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
   axis(2, at = seq(0, 100, 20), labels = paste0(seq(0, 100, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
 
-  title(
-    main = paste0("Made in France: manufacturing domestic value added content in domestic final demand (", panel_number, "/2)"),
-    col.main = "#111111",
-    cex.main = 1.05,
-    font.main = 2,
-    line = 0.8
-  )
-
   panel_sectors <- subsectors$sector[subsectors$panel == panel_number]
   panel_colors <- subsectors$color[subsectors$panel == panel_number]
   for (i in seq_along(panel_sectors)) {
@@ -271,7 +263,6 @@ draw_chart_device <- function(df_panel, panel_number) {
     xpd = TRUE,
     seg.len = 1.5
   )
-  mtext("Source: Eurostat FIGARO", side = 1, line = 9.9, col = "#555555", cex = 0.78, adj = 0)
 }
 
 draw_charts <- function(df) {
