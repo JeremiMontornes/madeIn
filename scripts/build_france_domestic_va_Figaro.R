@@ -231,7 +231,7 @@ draw_chart_device <- function(df) {
   axis(2, at = seq(40, 100, 20), labels = paste0(seq(40, 100, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.35, font = 2)
 
   title(
-    main = "French value-added content in French internal final demand by sector",
+    main = "Made in France: domestic value added content in domestic final demand",
     col.main = "#111111",
     cex.main = 1.25,
     font.main = 2,
