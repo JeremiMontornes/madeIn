@@ -75,3 +75,12 @@ Outputs:
 - `figures/french_va_content_in_french_internal_final_demand_by_sector_Figaro.png`
 
 The FIGARO script caches large Eurostat source files under `data/raw_Figaro/`, which is intentionally ignored by Git.
+
+Manufacturing subsectors from OECD TiVA:
+
+![Made in France manufacturing subsectors](figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.png)
+
+- `scripts/build_france_manufacturing_va_TiVA.R`
+- `data/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.csv`
+- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.svg`
+- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.png`

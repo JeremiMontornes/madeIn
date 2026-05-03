@@ -1,0 +1,208 @@
+script_path <- function() {
+  args <- commandArgs(FALSE)
+  file_arg <- args[grepl("^--file=", args)]
+  if (length(file_arg) > 0) {
+    return(normalizePath(sub("^--file=", "", file_arg[[1]]), mustWork = TRUE))
+  }
+  normalizePath("scripts/build_france_manufacturing_va_TiVA.R", mustWork = FALSE)
+}
+
+root <- normalizePath(file.path(dirname(script_path()), ".."), mustWork = TRUE)
+data_dir <- file.path(root, "data")
+raw_dir <- file.path(data_dir, "raw")
+fig_dir <- file.path(root, "figures")
+dir.create(data_dir, showWarnings = FALSE, recursive = TRUE)
+dir.create(raw_dir, showWarnings = FALSE, recursive = TRUE)
+dir.create(fig_dir, showWarnings = FALSE, recursive = TRUE)
+
+base_url <- paste0(
+  "https://sdmx.oecd.org/sti-public/rest/data/",
+  "OECD.STI.PIE,DSD_TIVA_MAINLV@DF_MAINLV"
+)
+start_year <- 1995L
+end_year <- 2022L
+
+subsectors <- data.frame(
+  sector = c(
+    "Food, beverages & tobacco",
+    "Textiles, apparel & leather",
+    "Wood, paper & printing",
+    "Petroleum products",
+    "Chemicals & pharmaceuticals",
+    "Rubber & plastics",
+    "Non-metallic minerals",
+    "Metals",
+    "Electronics & electrical equipment",
+    "Machinery",
+    "Transport equipment",
+    "Furniture & other manufacturing"
+  ),
+  activity = c(
+    "C10T12",
+    "C13T15",
+    "C16T18",
+    "C19",
+    "C20_21",
+    "C22",
+    "C23",
+    "C24_25",
+    "C26_27",
+    "C28",
+    "C29_30",
+    "C31T33"
+  ),
+  color = c(
+    "#e15759", "#f28e2b", "#edc948", "#59a14f", "#76b7b2", "#4e79a7",
+    "#af7aa1", "#ff9da7", "#9c755f", "#bab0ac", "#2f4b7c", "#8cd17d"
+  ),
+  stringsAsFactors = FALSE
+)
+
+fetch_series <- function(key) {
+  cache_file <- file.path(raw_dir, paste0(key, ".xml"))
+  if (!file.exists(cache_file)) {
+    url <- paste0(base_url, "/", key, "?startPeriod=", start_year, "&endPeriod=", end_year)
+    message("Downloading ", key)
+    ok <- FALSE
+    for (attempt in 1:5) {
+      ok <- tryCatch({
+        download.file(url, cache_file, mode = "wb", quiet = TRUE)
+        TRUE
+      }, error = function(e) {
+        if (file.exists(cache_file)) unlink(cache_file)
+        message("Retry ", attempt, " for ", key, ": ", conditionMessage(e))
+        Sys.sleep(2 * attempt)
+        FALSE
+      })
+      if (ok) break
+    }
+    if (!ok) stop("Could not download ", key)
+  }
+  parse_sdmx_generic(cache_file)
+}
+
+parse_sdmx_generic <- function(path) {
+  x <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "")
+  obs <- gregexpr("<generic:Obs>.*?</generic:Obs>", x, perl = TRUE)[[1]]
+  if (identical(obs, -1L)) {
+    return(data.frame(year = integer(), value = numeric()))
+  }
+  blocks <- regmatches(x, list(obs))[[1]]
+  year <- as.integer(sub('.*<generic:ObsDimension[^>]*value="([0-9]{4})".*', "\\1", blocks))
+  value <- as.numeric(sub('.*<generic:ObsValue[^>]*value="([^"]+)".*', "\\1", blocks))
+  data.frame(year = year, value = value)
+}
+
+build_dataset <- function() {
+  out <- list()
+  k <- 1L
+  for (i in seq_len(nrow(subsectors))) {
+    sector <- subsectors$sector[[i]]
+    activity <- subsectors$activity[[i]]
+    domestic_key <- paste("FD_VA", "FRA", activity, "FRA", "USD", "A", sep = ".")
+    total_key <- paste("FD_VA", "FRA", activity, "W", "USD", "A", sep = ".")
+
+    message("Processing ", sector, ": ", domestic_key, " and ", total_key)
+    domestic <- fetch_series(domestic_key)
+    total <- fetch_series(total_key)
+    names(domestic)[names(domestic) == "value"] <- "domestic_va_musd"
+    names(total)[names(total) == "value"] <- "total_va_musd"
+
+    merged <- merge(domestic, total, by = "year")
+    merged$sector <- sector
+    merged$activity <- activity
+    merged$domestic_share <- merged$domestic_va_musd / merged$total_va_musd
+    merged$domestic_share_pct <- 100 * merged$domestic_share
+    out[[k]] <- merged[, c(
+      "year", "sector", "activity", "domestic_va_musd", "total_va_musd",
+      "domestic_share", "domestic_share_pct"
+    )]
+    k <- k + 1L
+  }
+  do.call(rbind, out)
+}
+
+write_outputs <- function(df) {
+  csv_path <- file.path(data_dir, "french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.csv")
+  df <- df[order(df$sector, df$year), ]
+  write.csv(df, csv_path, row.names = FALSE)
+  csv_path
+}
+
+draw_chart_device <- function(df) {
+  op <- par(
+    bg = "white",
+    fg = "#222222",
+    mar = c(11.6, 5.5, 2.8, 1.8),
+    xaxs = "i",
+    yaxs = "i",
+    family = "sans"
+  )
+  on.exit(par(op))
+
+  plot(
+    NA,
+    xlim = c(start_year, end_year),
+    ylim = c(0, 100),
+    axes = FALSE,
+    xlab = "",
+    ylab = "",
+    main = ""
+  )
+  abline(h = seq(0, 100, 20), col = "#cfcfcf", lwd = 2, lty = "dashed")
+  abline(v = c(seq(1995, 2020, 5), 2022), col = "#d9d9d9", lwd = 2, lty = "dotdash")
+  axis(1, at = c(seq(1995, 2020, 5), 2022), col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
+  axis(2, at = seq(0, 100, 20), labels = paste0(seq(0, 100, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
+
+  title(
+    main = "Made in France: manufacturing domestic value added content in domestic final demand",
+    col.main = "#111111",
+    cex.main = 1.1,
+    font.main = 2,
+    line = 0.8
+  )
+
+  for (i in seq_len(nrow(subsectors))) {
+    series <- df[df$sector == subsectors$sector[[i]], ]
+    series <- series[order(series$year), ]
+    lines(series$year, series$domestic_share_pct, col = subsectors$color[[i]], lwd = 5, lend = "square", ljoin = "mitre")
+  }
+
+  legend(
+    "bottom",
+    inset = c(0, -0.33),
+    legend = subsectors$sector,
+    col = subsectors$color,
+    lwd = 5,
+    ncol = 3,
+    bg = "white",
+    box.col = "#cfcfcf",
+    text.col = "black",
+    cex = 0.78,
+    xpd = TRUE,
+    seg.len = 1.5
+  )
+  mtext("Source: OECD TiVA 2025", side = 1, line = 9.9, col = "#555555", cex = 0.78, adj = 0)
+}
+
+draw_charts <- function(df) {
+  svg_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.svg")
+  png_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.png")
+
+  svg(svg_path, width = 15.3, height = 8.9, bg = "white")
+  draw_chart_device(df)
+  dev.off()
+
+  png(png_path, width = 2200, height = 1280, res = 144, bg = "white")
+  draw_chart_device(df)
+  dev.off()
+
+  c(svg = svg_path, png = png_path)
+}
+
+df <- build_dataset()
+csv_path <- write_outputs(df)
+chart_paths <- draw_charts(df)
+message("Wrote ", csv_path)
+message("Wrote ", chart_paths[["svg"]])
+message("Wrote ", chart_paths[["png"]])
