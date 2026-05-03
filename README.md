@@ -17,6 +17,8 @@ where:
 
 The values of `FD_VA` are in USD million in TiVA. The chart reports the French share in percent and the CSV also keeps the levels.
 
+![French value-added content in French internal final demand by sector](figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.png)
+
 ## Sectors
 
 The broad sector mapping uses OECD ISIC Rev. 4 activity aggregates:

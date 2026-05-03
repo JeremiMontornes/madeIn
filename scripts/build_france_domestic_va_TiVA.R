@@ -147,7 +147,7 @@ draw_chart_device <- function(df) {
     seg.len = 1.5
   )
   mtext(
-    "Source: OECD TiVA 2025, dataflow DSD_TIVA_MAINLV@DF_MAINLV. Calculation: FD_VA(FRA, sector, FRA) / FD_VA(FRA, sector, W).",
+    "Source: OECD TiVA 2025",
     side = 1,
     line = 9.0,
     col = "#555555",
