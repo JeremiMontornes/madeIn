@@ -235,11 +235,11 @@ draw_chart_device <- function(df_panel, panel_number) {
   )
   on.exit(par(op))
 
-  plot(NA, xlim = c(start_year, end_year), ylim = c(0, 100), axes = FALSE, xlab = "", ylab = "", main = "")
-  abline(h = seq(0, 100, 20), col = "#cfcfcf", lwd = 2, lty = "dashed")
+  plot(NA, xlim = c(start_year, end_year), ylim = c(0, 80), axes = FALSE, xlab = "", ylab = "", main = "")
+  abline(h = seq(0, 80, 20), col = "#cfcfcf", lwd = 2, lty = "dashed")
   abline(v = c(2010, 2015, 2020, 2023), col = "#d9d9d9", lwd = 2, lty = "dotdash")
   axis(1, at = c(2010, 2015, 2020, 2023), col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
-  axis(2, at = seq(0, 100, 20), labels = paste0(seq(0, 100, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
+  axis(2, at = seq(0, 80, 20), labels = paste0(seq(0, 80, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.25, font = 2)
 
   panel_sectors <- subsectors$sector[subsectors$panel == panel_number]
   panel_colors <- subsectors$color[subsectors$panel == panel_number]
