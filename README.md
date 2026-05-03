@@ -84,3 +84,16 @@ Manufacturing subsectors from OECD TiVA:
 - `data/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.csv`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.svg`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.png`
+
+Manufacturing subsectors from Eurostat FIGARO:
+
+![Made in France manufacturing subsectors FIGARO 1](figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_1.png)
+
+![Made in France manufacturing subsectors FIGARO 2](figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.png)
+
+- `scripts/build_france_manufacturing_va_Figaro.R`
+- `data/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro.csv`
+- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_1.svg`
+- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_1.png`
+- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.svg`
+- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.png`
