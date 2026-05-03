@@ -61,6 +61,13 @@ subsectors <- data.frame(
   stringsAsFactors = FALSE
 )
 
+excluded_sectors <- c(
+  "Printing",
+  "Furniture & other manufacturing",
+  "Repair & installation"
+)
+subsectors <- subsectors[!(subsectors$sector %in% excluded_sectors), ]
+
 download_cached <- function(dataset, url) {
   path <- file.path(raw_dir, paste0(dataset, ".tsv.gz"))
   if (!file.exists(path)) {
