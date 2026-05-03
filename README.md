@@ -1,6 +1,6 @@
 # madeIn
 
-Reproducible calculation of the French value-added content of French internal final demand by broad sector, using OECD TiVA.
+Reproducible R project calculating the French value-added content of French internal final demand by broad sector, using OECD TiVA.
 
 The script downloads OECD TiVA 2025 data from the SDMX endpoint and computes, for each sector:
 
@@ -35,14 +35,16 @@ The broad sector mapping uses OECD ISIC Rev. 4 activity aggregates:
 ## Run
 
 ```powershell
-python scripts\build_france_domestic_va.py
+& 'C:\Program Files\R\R-4.6.0\bin\x64\Rscript.exe' scripts\build_france_domestic_va.R
 ```
 
-If Python is blocked from network access on Windows, first populate the raw OECD SDMX cache with:
+The R script downloads the OECD SDMX series when they are not already cached, then writes the CSV and SVG outputs. It uses base R only.
+
+If R is blocked from network access on Windows, first populate the raw OECD SDMX cache with the helper PowerShell script, then rerun the R script:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\download_tiva_cache.ps1
-python scripts\build_france_domestic_va.py
+& 'C:\Program Files\R\R-4.6.0\bin\x64\Rscript.exe' scripts\build_france_domestic_va.R
 ```
 
 Outputs:
