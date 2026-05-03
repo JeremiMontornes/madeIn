@@ -96,8 +96,8 @@ write_outputs <- function(df) {
 
 draw_chart_device <- function(df) {
   op <- par(
-    bg = "black",
-    fg = "white",
+    bg = "white",
+    fg = "#222222",
     mar = c(10.8, 5.5, 2.8, 1.8),
     xaxs = "i",
     yaxs = "i",
@@ -114,14 +114,14 @@ draw_chart_device <- function(df) {
     ylab = "",
     main = ""
   )
-  abline(h = seq(40, 100, 20), col = "#d7d7d7", lwd = 2, lty = "dashed")
-  abline(v = seq(1995, 2020, 5), col = "#d7d7d7", lwd = 2, lty = "dotdash")
-  axis(1, at = c(seq(1995, 2020, 5), 2022), col = NA, col.ticks = NA, col.axis = "#777777", cex.axis = 1.35, font = 2)
-  axis(2, at = seq(40, 100, 20), labels = paste0(seq(40, 100, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#777777", cex.axis = 1.35, font = 2)
+  abline(h = seq(40, 100, 20), col = "#cfcfcf", lwd = 2, lty = "dashed")
+  abline(v = seq(1995, 2020, 5), col = "#d9d9d9", lwd = 2, lty = "dotdash")
+  axis(1, at = c(seq(1995, 2020, 5), 2022), col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.35, font = 2)
+  axis(2, at = seq(40, 100, 20), labels = paste0(seq(40, 100, 20), "%"), las = 1, col = NA, col.ticks = NA, col.axis = "#555555", cex.axis = 1.35, font = 2)
 
   title(
     main = "French value-added content in French internal final demand by sector",
-    col.main = "white",
+    col.main = "#111111",
     cex.main = 1.25,
     font.main = 2,
     line = 0.8
@@ -130,7 +130,7 @@ draw_chart_device <- function(df) {
     "French share of value added embodied in French internal final demand",
     side = 3,
     line = -0.8,
-    col = "#b8b8b8",
+    col = "#555555",
     cex = 0.85
   )
 
@@ -148,7 +148,7 @@ draw_chart_device <- function(df) {
     lwd = 6,
     ncol = 3,
     bg = "white",
-    box.col = "white",
+    box.col = "#cfcfcf",
     text.col = "black",
     cex = 1.15,
     xpd = TRUE,
@@ -158,7 +158,7 @@ draw_chart_device <- function(df) {
     "Source: OECD TiVA 2025, dataflow DSD_TIVA_MAINLV@DF_MAINLV. Calculation: FD_VA(FRA, sector, FRA) / FD_VA(FRA, sector, W).",
     side = 1,
     line = 9.0,
-    col = "#b8b8b8",
+    col = "#555555",
     cex = 0.78,
     adj = 0
   )
@@ -168,11 +168,11 @@ draw_charts <- function(df) {
   svg_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.svg")
   png_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.png")
 
-  svg(svg_path, width = 15.3, height = 8.9, bg = "black")
+  svg(svg_path, width = 15.3, height = 8.9, bg = "white")
   draw_chart_device(df)
   dev.off()
 
-  png(png_path, width = 2200, height = 1280, res = 144, bg = "black")
+  png(png_path, width = 2200, height = 1280, res = 144, bg = "white")
   draw_chart_device(df)
   dev.off()
 
