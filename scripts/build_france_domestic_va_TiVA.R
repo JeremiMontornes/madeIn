@@ -4,7 +4,7 @@ script_path <- function() {
   if (length(file_arg) > 0) {
     return(normalizePath(sub("^--file=", "", file_arg[[1]]), mustWork = TRUE))
   }
-  normalizePath("scripts/build_france_domestic_va.R", mustWork = FALSE)
+  normalizePath("scripts/build_france_domestic_va_TiVA.R", mustWork = FALSE)
 }
 
 root <- normalizePath(file.path(dirname(script_path()), ".."), mustWork = TRUE)
@@ -88,7 +88,7 @@ build_dataset <- function() {
 }
 
 write_outputs <- function(df) {
-  csv_path <- file.path(data_dir, "french_va_content_in_french_internal_final_demand_by_sector.csv")
+  csv_path <- file.path(data_dir, "french_va_content_in_french_internal_final_demand_by_sector_TiVA.csv")
   df <- df[order(df$sector, df$year), ]
   write.csv(df, csv_path, row.names = FALSE)
   csv_path
@@ -126,14 +126,6 @@ draw_chart_device <- function(df) {
     font.main = 2,
     line = 0.8
   )
-  mtext(
-    "French share of value added embodied in French internal final demand",
-    side = 3,
-    line = -0.8,
-    col = "#555555",
-    cex = 0.85
-  )
-
   for (i in seq_len(nrow(sectors))) {
     series <- df[df$sector == sectors$sector[[i]], ]
     series <- series[order(series$year), ]
@@ -165,8 +157,8 @@ draw_chart_device <- function(df) {
 }
 
 draw_charts <- function(df) {
-  svg_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.svg")
-  png_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.png")
+  svg_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector_TiVA.svg")
+  png_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector_TiVA.png")
 
   svg(svg_path, width = 15.3, height = 8.9, bg = "white")
   draw_chart_device(df)

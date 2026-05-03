@@ -35,7 +35,7 @@ The broad sector mapping uses OECD ISIC Rev. 4 activity aggregates:
 ## Run
 
 ```powershell
-& 'C:\Program Files\R\R-4.6.0\bin\x64\Rscript.exe' scripts\build_france_domestic_va.R
+& 'C:\Program Files\R\R-4.6.0\bin\x64\Rscript.exe' scripts\build_france_domestic_va_TiVA.R
 ```
 
 The R script downloads the OECD SDMX series when they are not already cached, then writes the CSV and SVG outputs. It uses base R only.
@@ -43,12 +43,12 @@ The R script downloads the OECD SDMX series when they are not already cached, th
 If R is blocked from network access on Windows, first populate the raw OECD SDMX cache with the helper PowerShell script, then rerun the R script:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\download_tiva_cache.ps1
-& 'C:\Program Files\R\R-4.6.0\bin\x64\Rscript.exe' scripts\build_france_domestic_va.R
+powershell -ExecutionPolicy Bypass -File scripts\download_tiva_cache_TiVA.ps1
+& 'C:\Program Files\R\R-4.6.0\bin\x64\Rscript.exe' scripts\build_france_domestic_va_TiVA.R
 ```
 
 Outputs:
 
-- `data/french_va_content_in_french_internal_final_demand_by_sector.csv`
-- `figures/french_va_content_in_french_internal_final_demand_by_sector.svg`
-- `figures/french_va_content_in_french_internal_final_demand_by_sector.png`
+- `data/french_va_content_in_french_internal_final_demand_by_sector_TiVA.csv`
+- `figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.svg`
+- `figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.png`
