@@ -51,3 +51,4 @@ Outputs:
 
 - `data/french_va_content_in_french_internal_final_demand_by_sector.csv`
 - `figures/french_va_content_in_french_internal_final_demand_by_sector.svg`
+- `figures/french_va_content_in_french_internal_final_demand_by_sector.png`

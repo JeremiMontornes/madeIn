@@ -94,21 +94,16 @@ write_outputs <- function(df) {
   csv_path
 }
 
-draw_chart <- function(df) {
-  svg_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.svg")
-  svg(svg_path, width = 15.3, height = 8.9, bg = "black")
+draw_chart_device <- function(df) {
   op <- par(
     bg = "black",
     fg = "white",
-    mar = c(7.5, 5.5, 2.8, 1.8),
+    mar = c(10.8, 5.5, 2.8, 1.8),
     xaxs = "i",
     yaxs = "i",
     family = "sans"
   )
-  on.exit({
-    par(op)
-    dev.off()
-  })
+  on.exit(par(op))
 
   plot(
     NA,
@@ -132,7 +127,7 @@ draw_chart <- function(df) {
     line = 0.8
   )
   mtext(
-    "OECD TiVA 2025, FD_VA(FRA, sector, FRA) / FD_VA(FRA, sector, W)",
+    "French share of value added embodied in French internal final demand",
     side = 3,
     line = -0.8,
     col = "#b8b8b8",
@@ -147,7 +142,7 @@ draw_chart <- function(df) {
 
   legend(
     "bottom",
-    inset = c(0, -0.43),
+    inset = c(0, -0.28),
     legend = sectors$sector,
     col = sectors$color,
     lwd = 6,
@@ -159,11 +154,34 @@ draw_chart <- function(df) {
     xpd = TRUE,
     seg.len = 1.5
   )
-  svg_path
+  mtext(
+    "Source: OECD TiVA 2025, dataflow DSD_TIVA_MAINLV@DF_MAINLV. Calculation: FD_VA(FRA, sector, FRA) / FD_VA(FRA, sector, W).",
+    side = 1,
+    line = 9.0,
+    col = "#b8b8b8",
+    cex = 0.78,
+    adj = 0
+  )
+}
+
+draw_charts <- function(df) {
+  svg_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.svg")
+  png_path <- file.path(fig_dir, "french_va_content_in_french_internal_final_demand_by_sector.png")
+
+  svg(svg_path, width = 15.3, height = 8.9, bg = "black")
+  draw_chart_device(df)
+  dev.off()
+
+  png(png_path, width = 2200, height = 1280, res = 144, bg = "black")
+  draw_chart_device(df)
+  dev.off()
+
+  c(svg = svg_path, png = png_path)
 }
 
 df <- build_dataset()
 csv_path <- write_outputs(df)
-svg_path <- draw_chart(df)
+chart_paths <- draw_charts(df)
 message("Wrote ", csv_path)
-message("Wrote ", svg_path)
+message("Wrote ", chart_paths[["svg"]])
+message("Wrote ", chart_paths[["png"]])
