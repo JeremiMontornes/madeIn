@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1280" viewBox="0 0 2200 1280">
+<rect width="100%" height="100%" fill="#000000"/>
+<style>text{font-family:Arial, Helvetica, sans-serif}.axis{fill:#757575;font-weight:700}.legend{fill:#111111;font-size:38px}.title{fill:#f2f2f2;font-size:42px;font-weight:700}.note{fill:#b8b8b8;font-size:24px}</style>
+<text x="130" y="48" class="title">French value-added content in French internal final demand by sector</text>
+<text x="130" y="78" class="note">OECD TiVA 2025, FD_VA(FRA, sector, FRA) / FD_VA(FRA, sector, W)</text>
+<line x1="130" y1="852.14" x2="2120" y2="852.14" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="18 8" opacity="0.85"/>
+<text x="102" y="865.14" class="axis" font-size="42" text-anchor="end">40%</text>
+<line x1="130" y1="596.43" x2="2120" y2="596.43" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="18 8" opacity="0.85"/>
+<text x="102" y="609.43" class="axis" font-size="42" text-anchor="end">60%</text>
+<line x1="130" y1="340.71" x2="2120" y2="340.71" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="18 8" opacity="0.85"/>
+<text x="102" y="353.71" class="axis" font-size="42" text-anchor="end">80%</text>
+<line x1="130" y1="85.00" x2="2120" y2="85.00" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="18 8" opacity="0.85"/>
+<text x="102" y="98.00" class="axis" font-size="42" text-anchor="end">100%</text>
+<line x1="130.00" y1="40" x2="130.00" y2="1015" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="10 8 2 8" opacity="0.85"/>
+<text x="130.00" y="1062" class="axis" font-size="42" text-anchor="middle">1995</text>
+<line x1="498.52" y1="40" x2="498.52" y2="1015" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="10 8 2 8" opacity="0.85"/>
+<text x="498.52" y="1062" class="axis" font-size="42" text-anchor="middle">2000</text>
+<line x1="867.04" y1="40" x2="867.04" y2="1015" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="10 8 2 8" opacity="0.85"/>
+<text x="867.04" y="1062" class="axis" font-size="42" text-anchor="middle">2005</text>
+<line x1="1235.56" y1="40" x2="1235.56" y2="1015" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="10 8 2 8" opacity="0.85"/>
+<text x="1235.56" y="1062" class="axis" font-size="42" text-anchor="middle">2010</text>
+<line x1="1604.07" y1="40" x2="1604.07" y2="1015" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="10 8 2 8" opacity="0.85"/>
+<text x="1604.07" y="1062" class="axis" font-size="42" text-anchor="middle">2015</text>
+<line x1="1972.59" y1="40" x2="1972.59" y2="1015" stroke="#d7d7d7" stroke-width="4" stroke-dasharray="10 8 2 8" opacity="0.85"/>
+<text x="1972.59" y="1062" class="axis" font-size="42" text-anchor="middle">2020</text>
+<text x="2120.00" y="1062" class="axis" font-size="42" text-anchor="middle">2022</text>
+<path d="M 130.00 395.32 L 203.70 401.72 L 277.41 415.95 L 351.11 417.80 L 424.81 420.07 L 498.52 444.76 L 572.22 443.18 L 645.93 441.94 L 719.63 463.37 L 793.33 443.24 L 867.04 459.06 L 940.74 496.90 L 1014.44 494.60 L 1088.15 525.83 L 1161.85 534.70 L 1235.56 523.91 L 1309.26 543.29 L 1382.96 542.83 L 1456.67 571.90 L 1530.37 554.63 L 1604.07 571.24 L 1677.78 583.95 L 1751.48 577.48 L 1825.19 555.13 L 1898.89 581.74 L 1972.59 542.15 L 2046.30 536.91 L 2120.00 572.45" fill="none" stroke="#ff7f79" stroke-width="17" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M 130.00 265.36 L 203.70 263.69 L 277.41 278.99 L 351.11 282.26 L 424.81 288.70 L 498.52 303.77 L 572.22 302.49 L 645.93 294.50 L 719.63 295.38 L 793.33 301.94 L 867.04 312.51 L 940.74 326.22 L 1014.44 362.42 L 1088.15 389.70 L 1161.85 364.91 L 1235.56 387.56 L 1309.26 391.63 L 1382.96 386.69 L 1456.67 371.88 L 1530.37 368.57 L 1604.07 369.73 L 1677.78 367.00 L 1751.48 389.21 L 1825.19 385.17 L 1898.89 373.85 L 1972.59 355.00 L 2046.30 403.96 L 2120.00 560.48" fill="none" stroke="#14c64f" stroke-width="17" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M 130.00 573.98 L 203.70 582.80 L 277.41 606.25 L 351.11 619.39 L 424.81 627.74 L 498.52 660.69 L 572.22 664.14 L 645.93 656.98 L 719.63 654.78 L 793.33 673.49 L 867.04 697.20 L 940.74 723.38 L 1014.44 729.81 L 1088.15 751.03 L 1161.85 721.50 L 1235.56 767.34 L 1309.26 786.94 L 1382.96 790.07 L 1456.67 789.71 L 1530.37 808.63 L 1604.07 829.66 L 1677.78 831.24 L 1751.48 848.69 L 1825.19 856.34 L 1898.89 850.39 L 1972.59 855.53 L 2046.30 883.36 L 2120.00 920.09" fill="none" stroke="#20c3c7" stroke-width="17" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M 130.00 121.57 L 203.70 120.75 L 277.41 122.53 L 351.11 126.50 L 424.81 126.90 L 498.52 128.85 L 572.22 130.03 L 645.93 127.88 L 719.63 126.19 L 793.33 125.99 L 867.04 125.28 L 940.74 124.40 L 1014.44 123.41 L 1088.15 119.42 L 1161.85 117.64 L 1235.56 120.46 L 1309.26 122.16 L 1382.96 123.52 L 1456.67 122.55 L 1530.37 123.93 L 1604.07 126.62 L 1677.78 128.65 L 1751.48 129.52 L 1825.19 129.95 L 1898.89 127.21 L 1972.59 126.77 L 2046.30 128.47 L 2120.00 139.87" fill="none" stroke="#c2b20b" stroke-width="17" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M 130.00 306.86 L 203.70 308.10 L 277.41 317.30 L 351.11 327.48 L 424.81 329.44 L 498.52 344.94 L 572.22 345.01 L 645.93 337.77 L 719.63 330.44 L 793.33 334.27 L 867.04 340.90 L 940.74 344.69 L 1014.44 349.03 L 1088.15 348.55 L 1161.85 335.60 L 1235.56 347.15 L 1309.26 361.47 L 1382.96 364.82 L 1456.67 372.72 L 1530.37 385.57 L 1604.07 395.26 L 1677.78 393.57 L 1751.48 396.57 L 1825.19 400.31 L 1898.89 397.67 L 1972.59 382.55 L 2046.30 398.93 L 2120.00 436.99" fill="none" stroke="#6da5ff" stroke-width="17" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M 130.00 100.82 L 203.70 100.98 L 277.41 102.52 L 351.11 103.58 L 424.81 103.77 L 498.52 106.26 L 572.22 106.28 L 645.93 104.93 L 719.63 103.77 L 793.33 103.56 L 867.04 104.17 L 940.74 104.26 L 1014.44 104.50 L 1088.15 104.68 L 1161.85 103.52 L 1235.56 105.43 L 1309.26 106.70 L 1382.96 106.07 L 1456.67 106.20 L 1530.37 107.04 L 1604.07 107.11 L 1677.78 107.94 L 1751.48 107.39 L 1825.19 108.96 L 1898.89 109.04 L 1972.59 105.88 L 2046.30 105.91 L 2120.00 110.21" fill="none" stroke="#ed61dd" stroke-width="17" stroke-linecap="square" stroke-linejoin="round"/>
+<rect x="410" y="1030" width="1380" height="185" rx="18" fill="#ffffff"/>
+<line x1="490" y1="1100" x2="555" y2="1100" stroke="#ff7f79" stroke-width="15"/>
+<text x="585" y="1114" class="legend">Agriculture</text>
+<line x1="490" y1="1170" x2="555" y2="1170" stroke="#14c64f" stroke-width="15"/>
+<text x="585" y="1184" class="legend">Energy</text>
+<line x1="830" y1="1100" x2="895" y2="1100" stroke="#20c3c7" stroke-width="15"/>
+<text x="925" y="1114" class="legend">Manufacturing Industry</text>
+<line x1="830" y1="1170" x2="895" y2="1170" stroke="#c2b20b" stroke-width="15"/>
+<text x="925" y="1184" class="legend">Construction</text>
+<line x1="1340" y1="1100" x2="1405" y2="1100" stroke="#6da5ff" stroke-width="15"/>
+<text x="1435" y="1114" class="legend">Market Services</text>
+<line x1="1340" y1="1170" x2="1405" y2="1170" stroke="#ed61dd" stroke-width="15"/>
+<text x="1435" y="1184" class="legend">Non-Market Services</text>
+</svg>
