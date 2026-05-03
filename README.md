@@ -19,6 +19,21 @@ The values of `FD_VA` are in USD million in TiVA. The chart reports the French s
 
 ![French value-added content in French internal final demand by sector](figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.png)
 
+FIGARO replication:
+
+![French value-added content in French internal final demand by sector - FIGARO](figures/french_va_content_in_french_internal_final_demand_by_sector_Figaro.png)
+
+The FIGARO replication uses Eurostat's published FIGARO value-added indicators for foreign value added in French final use and French value added in foreign final use. French gross value added by sector is extracted from the FIGARO industry-by-industry tables. The resulting measure is:
+
+```text
+French VA in French internal final demand
+= French gross VA - French VA in foreign final use
+
+French VA content
+= French VA in French internal final demand
+   / (French VA in French internal final demand + foreign VA in French final use)
+```
+
 ## Sectors
 
 The broad sector mapping uses OECD ISIC Rev. 4 activity aggregates:
@@ -54,3 +69,9 @@ Outputs:
 - `data/french_va_content_in_french_internal_final_demand_by_sector_TiVA.csv`
 - `figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.svg`
 - `figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.png`
+- `scripts/build_france_domestic_va_Figaro.R`
+- `data/french_va_content_in_french_internal_final_demand_by_sector_Figaro.csv`
+- `figures/french_va_content_in_french_internal_final_demand_by_sector_Figaro.svg`
+- `figures/french_va_content_in_french_internal_final_demand_by_sector_Figaro.png`
+
+The FIGARO script caches large Eurostat source files under `data/raw_Figaro/`, which is intentionally ignored by Git.
