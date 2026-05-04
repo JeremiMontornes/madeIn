@@ -97,3 +97,22 @@ Manufacturing subsectors from Eurostat FIGARO:
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_1.png`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.svg`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.png`
+
+Manufacturing industry domestic value-added content by country from Eurostat FIGARO:
+
+![Manufacturing domestic value-added content FIGARO 1](figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_1.png)
+
+![Manufacturing domestic value-added content FIGARO 2](figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_2.png)
+
+- `scripts/build_manufacturing_domestic_va_countries_Figaro.R`
+- `data/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro.csv`
+- `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_1.svg`
+- `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_1.png`
+- `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_2.svg`
+- `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_2.png`
+
+This country-level FIGARO script reads the large compressed FIGARO ICIO files and therefore requires:
+
+```r
+install.packages(c("data.table", "R.utils"))
+```
