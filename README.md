@@ -67,11 +67,9 @@ powershell -ExecutionPolicy Bypass -File scripts\download_tiva_cache_TiVA.ps1
 Outputs:
 
 - `data/french_va_content_in_french_internal_final_demand_by_sector_TiVA.csv`
-- `figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.svg`
 - `figures/french_va_content_in_french_internal_final_demand_by_sector_TiVA.png`
 - `scripts/build_france_domestic_va_Figaro.R`
 - `data/french_va_content_in_french_internal_final_demand_by_sector_Figaro.csv`
-- `figures/french_va_content_in_french_internal_final_demand_by_sector_Figaro.svg`
 - `figures/french_va_content_in_french_internal_final_demand_by_sector_Figaro.png`
 
 The FIGARO script caches large Eurostat source files under `data/raw_Figaro/`, which is intentionally ignored by Git.
@@ -82,7 +80,6 @@ Manufacturing subsectors from OECD TiVA:
 
 - `scripts/build_france_manufacturing_va_TiVA.R`
 - `data/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.csv`
-- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.svg`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_TiVA.png`
 
 Manufacturing subsectors from Eurostat FIGARO:
@@ -93,9 +90,7 @@ Manufacturing subsectors from Eurostat FIGARO:
 
 - `scripts/build_france_manufacturing_va_Figaro.R`
 - `data/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro.csv`
-- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_1.svg`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_1.png`
-- `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.svg`
 - `figures/french_va_content_in_french_internal_final_demand_manufacturing_subsectors_Figaro_2.png`
 
 Manufacturing industry domestic value-added content by country from Eurostat FIGARO:
@@ -106,9 +101,7 @@ Manufacturing industry domestic value-added content by country from Eurostat FIG
 
 - `scripts/build_manufacturing_domestic_va_countries_Figaro.R`
 - `data/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro.csv`
-- `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_1.svg`
 - `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_1.png`
-- `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_2.svg`
 - `figures/manufacturing_domestic_va_content_in_final_internal_demand_countries_Figaro_2.png`
 
 This country-level FIGARO script reads the large compressed FIGARO ICIO files and therefore requires:
