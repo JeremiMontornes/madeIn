@@ -301,7 +301,7 @@ build_indicator_formula_df <- function() {
       fgdf$freq == "A" &
         fgdf$nace_r2 == "C" &
         fgdf$geo %in% geos &
-        !(fgdf$c_dest %in% c(geos, "TOTAL", "EU27_2020", "NEU27_2020")) &
+        fgdf$c_dest == "TOTAL" &
         fgdf$unit == "THS_EUR",
     ],
     "domestic_in_foreign"
